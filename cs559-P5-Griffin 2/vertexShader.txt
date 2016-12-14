@@ -1,0 +1,24 @@
+precision highp float;
+attribute vec3 position;
+attribute vec3 normal;
+uniform mat3 normalMatrix;
+uniform mat4 modelViewMatrix;
+uniform mat4 projectionMatrix;
+varying vec3 fNormal;
+varying vec3 fPosition;
+uniform float time;
+
+void main()
+{
+  
+  fNormal = normalize(normalMatrix * normal);
+  float theta = 3.1415 / sin(time);
+  mat4 rotMatrix =  mat4( cos( theta ), -sin( theta ), 0.0, 0.0,
+  		          sin( theta ),  cos( theta ), 0.0, 0.0,
+			  0.0,           0.0,         1.0, 0.0,
+			  0.0,           0.0,         0.0, 1.0 );
+  mat4 newModel = modelViewMatrix * rotMatrix;
+  vec4 pos = newModel * vec4(position, 1.0);
+  fPosition = pos.xyz;
+  gl_Position = projectionMatrix * pos;
+}

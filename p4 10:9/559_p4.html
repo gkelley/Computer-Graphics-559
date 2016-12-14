@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="description" content="Pose">
+  <meta charset="utf-8">
+  <title>What Happens in Vegas</title>
+  <h1>Welcome to Las Vegas!</h1>
+  <div class = "centerCan">
+  <canvas id="myCanvas"
+	   width="500" height="500"
+	   style="border:1px solid #000;">
+  </canvas><br/>
+  </div>
+<div class = "camera">
+  <h3>Modeling Animations</h3>
+  <input id="slider1" type="range" min="-100" max="100" /> Rotate Landscape Horizontally
+  <br>
+  <input id="slider2" type="range" min="-100" max="100" /> Rotate Object In a Loop
+  <br>
+  <input id="slider3" type="range" min="-100" max="100" /> Grow Luxor Hotel
+  <br>
+  <h3>Camera Operations</h3>
+  <input id = "redBox" type ="checkbox"/> Color By Distance
+  <br>
+  <input id="slider8" type="range" min="50" max="150" /> Feild Of View
+  <br>
+  <input id="slider12" type="range" min="-400" max="400" /> lookAtX
+  <br>
+  <input id="slider13" type="range" min="-400" max="400" /> lookAtY
+  <br>
+  <input id="slider14" type="range" min="-400" max="400" /> lookAtZ
+  <br>
+  <input id="slider9" type="range" min="-1000" max="1000" /> lookFromX
+  <br>
+  <input id="slider10" type="range" min="-400" max="400" /> lookFromY
+  <br>
+  <input id="slider11" type="range" min="-400" max="400" /> lookFromZ
+  <br>
+
+
+  <img src = "gold.jpg" style = "display:none" id = "gold">
+  <img src = "brick.jpg" style = "display:none" id = "brick">
+
+
+
+</div>
+
+  <script>
+  	var currImage = 0;
+  	function changeImage(){
+  		currImage += 1;
+
+  		document.getElementById("myCanvas").style = "background-image: url(\"" + currImage + ".jpg\")";
+
+  		if(currImage > 4){
+  			currImage = 0;
+  		}
+
+  	}
+  </script>
+
+  <script src = "p4.js"></script>
+  <script src="http://graphics.cs.wisc.edu/JS/twgl-full.min.js"></script>
+
+  <style>
+
+	#myCanvas {
+    	background-color: #ede4b6;
+	}
+
+	h1 {
+   	 	color: Black;
+   	 	font-size: 50px;
+	}
+
+	.centerCan{
+		position:relative;
+ 	 	top: 0px;
+  	left:0px;
+    display: inline-block;
+	}
+  .camera{
+    display: inline-block;
+    background-color: #6b633a;
+  }
+
+  body{
+    background-image: url("vegas.jpg");
+    background-repeat: no-repeat;
+  }
+</style>
+
+
+
+
+</head>
+<body>
+
+</body>
+</html>

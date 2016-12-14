@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="description" content="Pose">
+  <meta charset="utf-8">
+  <title>Robo Poser</title>
+  <div class = "centerCan">
+  <canvas id="myCanvas"
+	   width="500" height="500"
+	   style="border:0px solid #000;">
+  </canvas><br/>
+  </div>
+  
+  <div class = "other">
+  
+  <h1>Robot Poser</h1>
+  <button onclick="changeImage()">Change Image</button>
+  <h3>Pose the 3D robot to fit the background image</h3> 
+  <input id="slider1" type="range" min="-100" max="100" /> Rotate View
+  <br>
+  <input id="slider2" type="range" min="-100" max="100" /> Rotate Object
+  <br>
+  <input id="slider3" type="range" min="-100" max="100" /> Rotate Head
+  <br>
+  <input id="slider4" type="range" min="-100" max="100" /> Rotate Right Arm
+  <br>
+  <input id="slider5" type="range" min="-100" max="100" /> Rotate Left Arm
+  <br>
+  <input id="slider6" type="range" min="-100" max="100" /> Rotate Right Leg
+  <br>
+  <input id="slider7" type="range" min="-100" max="100" /> Rotate Left Leg
+  
+  </div>
+  
+  <script> 
+  	var currImage = 0;
+  	function changeImage(){
+  		currImage += 1;
+  		
+  		document.getElementById("myCanvas").style = "background-image: url(\"" + currImage + ".jpg\")";  
+  		
+  		if(currImage > 4){
+  			currImage = 0;
+  		} 
+  	
+  	}
+  </script>
+  
+  <script src = "p3.js"></script>
+  <script src="http://graphics.cs.wisc.edu/JS/twgl-full.min.js"></script>
+  
+  <style>
+	body {
+    	background-image: url(stage.jpg);
+    	background-repeat: no-repeat;
+	}
+
+	h1 {
+   	 	color: Black;
+   	 	font-size: 50px;
+	} 
+	
+	.centerCan{
+		position:relative;
+ 	 	top: 130px; 
+  		left:300px; 
+	}
+	.other{
+		position:relative;
+ 	 	top: 150px; 
+  		left:320px; 
+	
+	}
+	button {
+	
+    background-color: #ADD8E6; 
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    padding: 14px 40px;
+}
+</style>
+  
+  
+  
+  
+</head>
+<body>
+
+</body>
+</html>

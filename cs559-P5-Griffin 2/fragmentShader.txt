@@ -1,0 +1,30 @@
+precision highp float;
+uniform float time;
+uniform vec2 resolution;
+varying vec3 fNormal;
+varying vec3 fPosition;
+
+void main()
+{
+  
+  float normX = 0.5*(1.0*fNormal.x);
+  float normY = 0.5*(1.0*fNormal.y);
+  float normz = 0.5*(1.0*fNormal.z);
+  vec2 loc = gl_FragCoord.xy/resolution;
+  //Lighting
+  vec3 dir = vec3(loc.x,sin(time*20.0),loc.y);  
+  
+   //Responsible for the strips of green and purple
+  if(abs(mod(fPosition.y, .2 * sin(time * 5.0 + 5.0))) < .1){
+     vec3 color = vec3(.2,abs(sin(time * 20.0 * loc.x)),.5);
+    float diffuse = 0.1 + dot(fNormal,dir);
+    gl_FragColor = vec4(diffuse * color, 1);
+    return;
+  }
+  
+  float ran = fract(sin(dot(loc ,vec2(12.9898,78.233))) * 43758.5453);;
+  vec3 color = vec3(abs(sin(time * 40.0 * loc.y)),ran+sin(ran),ran+cos(ran)); 
+  float diffuse = 0.1 + dot(fNormal,dir);
+  gl_FragColor = vec4(diffuse * color, 1);
+}
+

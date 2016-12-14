@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <canvas id="myCanvas" width="600" height="600" style="border:solid 2px; background-color: #7EC0EE;"></canvas>
+	<br/>
+  <button><a href="javascript:history.go(0)">Reset Animation!</a></button>
+  <h3>Griffin Kelley © 2016</h3>
+</body>
+<head>
+  <meta charset="utf-8">
+  <title>I'm on a Boat</title>
+  <script>
+
+  function setup() { "use strict"
+
+    var canvas = document.getElementById('myCanvas');
+
+
+    var waterLevel = 0;
+    var rise = true;
+    var boatRot = 0;
+    var propRot = 0;
+    var sharkMove = 0;
+    function draw(){
+        var context = canvas.getContext('2d');
+        waterLevel = (waterLevel + .2) % 800;
+        boatRot = (boatRot + .1) % 500;
+        propRot = (propRot + 1) % 360;
+        sharkMove = sharkMove + .5 % 600;
+        canvas.width = canvas.width;
+
+
+        function drawBoat(){
+          //Boat Frame
+          context.beginPath();
+          context.fillStyle = "#996633";
+          context.moveTo(150-150,406-400);
+          context.lineTo(459-150,406-400);
+          context.lineTo(440-150,336-400);
+          context.lineTo(476-150,239-400);
+          context.lineTo(474-150,252-400);
+          context.lineTo(515-150,253-400);
+          context.lineTo(560-150,196-400);
+          context.lineTo(471-150,227-400);
+          context.lineTo(473-150,196-400);
+          context.lineTo(456-150,196-400);
+          context.lineTo(458-150,233-400);
+          context.lineTo(325-150,290-400);
+          context.lineTo(302-150,337-400);
+          context.lineTo(268-150,337-400);
+          context.lineTo(268-150,262-400);
+          context.lineTo(251-150,262-400);
+          context.lineTo(251-150,337-400);
+          context.lineTo(197-150,337-400);
+          context.lineTo(208-150,286-400);
+          context.lineTo(166-150,237-400);
+          context.lineTo(91-150,213-400);
+          context.lineTo(90-150,233-400);
+          context.lineTo(116-150,231-400);
+          context.lineTo(122-150,284-400);
+          context.lineTo(159-150,321-400);
+          context.lineTo(150-150,406-400);
+          context.closePath();
+          context.fill();
+
+          //SOS
+          context.beginPath();
+          context.moveTo(346-150,341-400);
+          context.lineTo(330-150,323-400);
+          context.lineTo(317-150,345-400);
+          context.lineTo(346-150,380-400);
+          context.lineTo(330-150,394-400);
+          context.lineTo(313-150,372-400);
+          context.stroke();
+
+          context.moveTo(371-150,324-400);
+          context.lineTo(356-150,355-400);
+          context.lineTo(368-150,387-400);
+          context.lineTo(382-150,356-400);
+          context.lineTo(371-150,324-400);
+          context.stroke();
+
+          context.moveTo(426-150,341-400);
+          context.lineTo(410-150,323-400);
+          context.lineTo(400-150,345-400);
+          context.lineTo(426-150,380-400);
+          context.lineTo(410-150,394-400);
+          context.lineTo(383-150,372-400);
+          context.stroke();
+          context.closePath();
+
+
+          //Sail
+          context.beginPath();
+          context.fillStyle = "#b3ab74";
+          context.moveTo(187-150,259-400);
+          context.lineTo(392-150,271-400);
+          context.lineTo(362-150,94-400);
+          context.lineTo(350-150,118-400);
+          context.lineTo(328-150,93-400);
+          context.lineTo(305-150,119-400);
+          context.lineTo(289-150,97-400);
+          context.lineTo(266-150,115-400);
+          context.lineTo(236-150,93-400);
+          context.lineTo(216-150,114-400);
+          context.lineTo(190-150,95-400);
+          context.lineTo(151-150,96-400);
+          context.lineTo(150-150,232-400);
+          context.lineTo(167-150,237-400);
+          context.lineTo(187-150,259-400);
+          context.closePath();
+          context.fill();
+
+          //Engine
+          context.beginPath();
+          context.fillStyle = "#B0C4DE";
+          context.moveTo(157-150,350-400);
+          context.lineTo(150-150,406-400);
+          context.lineTo(133-150,431-400);
+          context.lineTo(133-150,408-400);
+          context.lineTo(104-150,413-400);
+          context.lineTo(104-150,403-400);
+          context.lineTo(130-150,401-400);
+          //PROP CONNECTS AT (114,407)
+          context.lineTo(110-150,360-400);
+          context.lineTo(128-150,332-400);
+          context.lineTo(157-150,350-400);
+          context.closePath();
+          context.fill();
+
+          //Skull
+          context.beginPath();
+          context.fillStyle = "black";
+          context.moveTo(259-150,134-400);
+          context.lineTo(234-150,141-400);
+          context.lineTo(232-150,167-400);
+          context.lineTo(245-150,182-400);
+          context.lineTo(235-150,208-400);
+          context.lineTo(283-150,212-400);
+          context.lineTo(269-150,187-400);
+          context.lineTo(288-150,175-400);
+          context.lineTo(288-150,146-400);
+          context.lineTo(259-150,134-400);
+          context.closePath();
+          context.fill();
+          context.beginPath();
+          context.fillStyle = "white";
+          context.moveTo(246-150,146-400);
+          context.lineTo(240-150,156-400);
+          context.lineTo(246-150,166-400);
+          context.lineTo(256-150,160-400);
+          context.lineTo(246-150,146-400);
+          context.moveTo(272-150,148-400);
+          context.lineTo(276-150,162-400);
+          context.lineTo(267-150,175-400);
+          context.lineTo(264-150,159-400);
+          context.closePath();
+          context.fill();
+          context.beginPath();
+          context.fillStyle = "black";
+          context.moveTo(205-150,225-400);
+          context.lineTo(211-150,217-400);
+          context.lineTo(304-150,257-400);
+          context.lineTo(306-150,259-400);
+          context.moveTo(306-150,201-400);
+          context.lineTo(316-150,206-400);
+          context.lineTo(235-150,257-400);
+          context.lineTo(227-150,259-400);
+          context.closePath();
+          context.fill();
+
+
+        }
+        function drawWheel(){
+          context.beginPath();
+          context.lineWidth = 5;
+          context.moveTo(48-50,18-50);
+          context.lineTo(74-50,31-50);
+          context.lineTo(75-50,62-50);
+          context.lineTo(48-50,78-50);
+          context.lineTo(22-50,64-50);
+          context.lineTo(22-50,31-50);
+          context.lineTo(48-50,18-50);
+          context.closePath();
+          context.stroke();
+
+          context.moveTo(47-50,7-50);
+          context.lineTo(47-50,92-50);
+          context.stroke();
+
+          context.moveTo(96-50,25-50);
+          context.lineTo(5-50,72-50);
+          context.stroke();
+
+          context.moveTo(4-50,26-50);
+          context.lineTo(89-50,74-50);
+          context.stroke();
+
+
+        }
+        function drawProp(){
+          context.beginPath();
+          context.fillStyle = "black";
+          context.moveTo(100-100,100-100);
+          context.lineTo(88-100,92-100);
+          context.lineTo(87-100,33-100);
+          context.lineTo(101-100,19-100);
+          context.lineTo(115-100,33-100);
+          context.lineTo(116-100,92-100);
+          context.lineTo(100-100,100-100);
+          context.lineTo(125-100,111-100);
+          context.lineTo(161-100,149-100);
+          context.lineTo(157-100,170-100);
+          context.lineTo(140-100,166-100);
+          context.lineTo(108-100,128-100);
+          context.lineTo(100-100,100-100);
+          context.lineTo(93-100,139-100);
+          context.lineTo(54-100,153-100);
+          context.lineTo(29-100,150-100);
+          context.lineTo(35-100,133-100);
+          context.lineTo(78-100,102-100);
+          context.lineTo(100-100,100-100);
+          context.closePath();
+          context.fill();
+        }
+
+
+        function drawWaves(){
+          context.fillStyle = "yellow";
+          context.beginPath();
+          context.arc(100,75,50,0,2*Math.PI);
+          context.fill();
+
+          //Gradient
+          var gradient = context.createLinearGradient(0, 0, 0, 1000);
+          gradient.addColorStop(0, "#00ccff");
+          gradient.addColorStop(1, "#00004d");
+
+          context.fillStyle = gradient;
+          context.beginPath();
+          context.rect(0,400,600,1000);
+          context.fill();
+        }
+
+        function drawShark(){
+          context.fillStyle = "#003445";
+          context.beginPath();
+          context.moveTo(3,123);
+          context.lineTo(22,146);
+          context.lineTo(87,144);
+          context.lineTo(105,127);
+          context.lineTo(97,164);
+          context.lineTo(78,178);
+          context.lineTo(106,193);
+          context.lineTo(160,193);
+          context.lineTo(172,219);
+          context.lineTo(190,233);
+          context.lineTo(206,237);
+          context.lineTo(196,208);
+          context.lineTo(200,191);
+          context.lineTo(290,183);
+          context.lineTo(289,181);
+          context.lineTo(417,169);
+          context.lineTo(443,153);
+          context.lineTo(471,146);
+          context.lineTo(500,186);
+          context.lineTo(513,207);
+          context.lineTo(525,141);
+          context.lineTo(515,126);
+          context.lineTo(524,103);
+          context.lineTo(512,51);
+          context.lineTo(493,74);
+          context.lineTo(489,93);
+          context.lineTo(474,114);
+          context.lineTo(344,99);
+          context.lineTo(287,84);
+          context.lineTo(247,85);
+          context.lineTo(233,73);
+          context.lineTo(208,42);
+          context.lineTo(195,60);
+          context.lineTo(195,79);
+          context.lineTo(149,83);
+          context.lineTo(3,123);
+          context.closePath();
+          context.fill();
+
+          //EYE
+          context.fillStyle = "white";
+          context.beginPath();
+          context.arc(90,119, 10,0,2*Math.PI);
+          context.closePath();
+          context.fill();
+          context.fillStyle = "black";
+          context.beginPath();
+          context.arc(85,117, 3,0,2*Math.PI);
+          context.closePath();
+          context.fill();
+
+          //Teeth
+          context.fillStyle = "white";
+          context.beginPath();
+          context.moveTo(19,145);
+          context.lineTo(30,161);
+          context.lineTo(36,148);
+          context.lineTo(44,162);
+          context.lineTo(50,150);
+          context.lineTo(57,163);
+          context.lineTo(66,151);
+          context.lineTo(73,162);
+          context.lineTo(80,150);
+          context.lineTo(86,159);
+          context.lineTo(91,150);
+          context.lineTo(98,156);
+          context.lineTo(89,159);
+          context.lineTo(89,168);
+          context.lineTo(78,167);
+          context.lineTo(78,179);
+          context.lineTo(97,163);
+          context.lineTo(104,130);
+          context.lineTo(87,143);
+          context.lineTo(19,145);
+          context.closePath();
+          context.fill();
+        }
+        function drawGround(){
+          context.fillStyle = "#240F01";
+          context.beginPath();
+          context.rect(0,1200,600,250);
+          context.fill();
+        }
+        function drawFish(){
+          context.fillStyle = "#31c4a0";
+          context.beginPath();
+          context.moveTo(2,39);
+          context.lineTo(19,51);
+          context.lineTo(1,62);
+          context.lineTo(27,77);
+
+          context.lineTo(43,79);
+          // context.lineTo(56,101);
+          // context.lineTo(77,106);
+          // context.lineTo(64,93);
+          context.lineTo(61,79);
+
+
+          context.lineTo(96,79);
+          context.lineTo(138,65);
+          context.lineTo(181,82);
+          context.lineTo(168,58);
+          context.lineTo(181,33);
+          context.lineTo(138,40);
+
+          context.lineTo(104,33);
+
+          context.lineTo(84,27);
+
+          context.lineTo(33,30);
+
+          context.lineTo(2,39);
+          context.fill();
+
+          //bottom fin
+          context.fillStyle = "#f5ff69";
+          context.beginPath();
+          context.moveTo(43,79);
+          context.lineTo(56,101);
+          context.lineTo(77,106);
+          context.lineTo(64,93);
+          context.lineTo(61,79);
+          context.fill();
+          //top fin
+          context.fillStyle = "#f5ff69";
+          context.beginPath();
+          context.moveTo(104,33);
+          context.lineTo(97,4);
+          context.lineTo(80,11);
+          context.lineTo(61,4);
+          context.lineTo(47,13);
+          context.lineTo(26,5);
+          context.lineTo(33,30);
+          context.lineTo(84,27);
+          context.lineTo(104,33)
+          context.fill();
+
+          //EYE
+          context.fillStyle = "white";
+          context.beginPath();
+          context.arc(30,45, 4,0,2*Math.PI);
+          context.closePath();
+          context.fill();
+          context.fillStyle = "black";
+          context.beginPath();
+          context.arc(30, 45, 1,0,2*Math.PI);
+          context.closePath();
+          context.fill();
+
+        }
+
+
+        //Water
+        context.translate(0,-waterLevel);
+        drawWaves();
+        context.save();
+
+        //Boat == orgin
+        context.translate(150,400);
+        context.save();
+        context.translate(0,boatRot * 2);
+        context.rotate(boatRot * -0.001*Math.PI);
+        drawBoat();
+        context.save();
+
+        //Prop == origin
+        context.translate(-50,10);
+        context.rotate(propRot *0.04 *Math.PI);
+        drawProp();
+
+        //Wheel
+        context.restore();
+        context.translate(315,-210);
+        context.rotate(propRot *0.01 *Math.PI);
+        drawWheel();
+
+
+        context.restore();
+        //Orgin at water level
+
+        //First Pass
+        context.save();
+        context.translate(500 - sharkMove * 1.5, 200);
+        drawFish();
+        context.translate(1500 - sharkMove, 200);
+        drawShark();
+        context.restore();
+
+
+        //Second Pass
+        context.translate(2500 - sharkMove * 1.5, 550);
+        drawFish();
+        context.translate(2000 - sharkMove, -120);
+        drawShark();
+
+        context.restore();
+        context.restore();
+        drawGround();
+
+
+
+
+
+        window.requestAnimationFrame(draw);
+    }
+    window.requestAnimationFrame(draw);
+  };
+  window.onload = setup;
+
+
+  </script>
+</head>
+</html>
